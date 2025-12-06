@@ -10,7 +10,8 @@ import { VoiceService } from './voice.service';
 
 @WebSocketGateway({
   cors: {
-    origin: '*',
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    credentials: true,
   },
 })
 export class VoiceGateway implements OnGatewayConnection, OnGatewayDisconnect {
